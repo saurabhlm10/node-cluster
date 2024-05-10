@@ -3,8 +3,10 @@ const numCPUs = require("node:os").availableParallelism();
 const process = require("node:process");
 const express = require("express");
 
+
 const port = 3000;
 if (cluster.isPrimary) {
+  console.log("Number of CPUs", numCPUs);
   console.log(`Primary ${process.pid} is running`);
 
   // Fork workers.
